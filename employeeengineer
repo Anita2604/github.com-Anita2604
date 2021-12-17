@@ -1,0 +1,58 @@
+package lab212;
+import java.util.*;
+class Employee
+{
+double basicSalary,DA,HRA;
+void display()
+ {
+  System.out.println("Name of the class is Employee");
+ }
+
+void calcSalary(double basicSalary,double DA, double HRA )
+ {
+  double Totalsalary = (basicSalary + (basicSalary*DA/100) + (basicSalary*HRA/100));
+  System.out.println("Salary of the Employee is: " + Totalsalary);
+ }
+
+}
+
+class Engineer extends Employee
+{
+  void display()
+   {
+    super.display();
+    super.calcSalary(basicSalary, DA, HRA);
+    System.out.println("Name of the class is Engineer");
+   }
+
+  void calcSalary(double basicSalary,double DA, double HRA )
+   {
+    double Totalsalary = (basicSalary + (basicSalary*DA/100) + (basicSalary*HRA/100));
+    System.out.println("Salary of the engineer is: " + (2*Totalsalary));
+   }
+}
+
+
+public class EmployeeEngineer
+  {
+   public static void main(String[] args)  
+    {
+     Scanner sc = new Scanner(System.in);
+     sc.close();
+     Engineer eng = new Engineer();
+
+     System.out.println("Enter the basic salary: ");
+     eng.basicSalary = sc.nextDouble();
+     System.out.println("Enter the DA of the Employee: ");
+     eng.DA = sc.nextDouble();
+     System.out.println("Enter the HRA of the Employee: ");
+     eng.HRA = sc.nextDouble();
+
+     eng.display();
+     eng.calcSalary(eng.basicSalary,eng.DA,eng.HRA);
+
+}
+
+}
+
+
